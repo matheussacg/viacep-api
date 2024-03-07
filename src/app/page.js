@@ -27,36 +27,45 @@ export default function Home() {
     fetchApi();
   };
 
-  return (
-    <div className="">
-      <Header />
-      <div className="md:container mx-auto p-4 md:py-8">
-        <div className="flex flex-col md:flex-row justify-center items-center md:gap-8 h-screen">
-          <div className="mb-4 md:mb-0">
-            <h1 className="text-2xl md:text-4xl font-bold">CEP</h1>
-            <div className="flex flex-col md:flex-row items-center">
-              <input
-                className="p-3 mb-2 md:mb-0 md:mr-2 bg-gray-100 rounded"
-                value={cep}
-                onChange={handleInputChange}
-                placeholder="Digite o CEP"
-              />
-              <button
-                onClick={handleSearch}
-                className="font-bold bg-gray-500 p-3 rounded text-white cursor-pointer"
-              >
-                Buscar
-              </button>
-            </div>
+// ... (importações e código anterior)
+
+return (
+  <div className="">
+    <Header />
+    <div className="md:container mx-auto p-4 md:py-8">
+      <div className="flex flex-col md:flex-row justify-center items-center md:gap-8 h-screen">
+        <div className="mb-4 md:mb-0">
+          <h1 className="text-2xl md:text-4xl font-bold">CEP</h1>
+          <div className="flex flex-col md:flex-row items-center">
+            <input
+              className="p-3 mb-2 md:mb-0 md:mr-2 bg-gray-100 rounded"
+              value={cep}
+              onChange={handleInputChange}
+              placeholder="Digite o CEP"
+            />
+            <button
+              onClick={handleSearch}
+              className="font-bold bg-gray-500 p-3 rounded text-white cursor-pointer"
+            >
+              Buscar
+            </button>
           </div>
-          {Object.keys(endereco).length > 0 && (
-            <div className="border-t md:border-0 md:border-l-2 border-gray-400 mt-4 md:mt-0 pt-4 md:pl-4">
-              <pre className="m-3">{JSON.stringify(endereco, null, 2)}</pre>
-            </div>
-          )}
         </div>
+        {Object.keys(endereco).length > 0 && (
+          <div className="border-t md:border-0 md:border-l-2 border-gray-400 mt-4 md:mt-0 pt-4 md:pl-4 text-xs md:text-base">
+            <pre className="m-3">
+              {Object.entries(endereco).map(([key, value]) => (
+                <p key={key}>
+                  <span className="font-bold">{key}:</span> {value}
+                </p>
+              ))}
+            </pre>
+          </div>
+        )}
       </div>
-      <Footer />
     </div>
-  );
+    <Footer />
+  </div>
+);
+
 }
