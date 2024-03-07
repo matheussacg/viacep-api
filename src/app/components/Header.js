@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -13,10 +13,20 @@ export default function Header() {
     <header className="bg-gray-800 text-white">
       <div className="flex items-center justify-between p-4">
         <div className="flex items-center">
-          {/* Adicione sua logo de texto ou imagem aqui */}
           <span className="text-xl font-bold mr-4">ViaAPI</span>
         </div>
-        {/* Menu Hamburguer para telas pequenas */}
+        <div className="hidden md:flex space-x-4">
+          <Link href="/">
+            <span className="text-xl font-bold hover:bg-gray-700 px-2 py-1">
+              Pesquisa
+            </span>
+          </Link>
+          <Link href="/autopreenchimento">
+            <span className="text-xl font-bold hover:bg-gray-700 px-2 py-1">
+              Autopreenchimento
+            </span>
+          </Link>
+        </div>
         <div className="md:hidden">
           <button
             onClick={toggleMenu}
@@ -26,14 +36,17 @@ export default function Header() {
           </button>
         </div>
       </div>
-      {/* Opções do Menu Hamburguer em uma div separada */}
       <div className={`md:hidden ${menuOpen ? "block" : "hidden"}`}>
         <nav>
           <Link href="/">
-            <span className="block text-xl font-bold pt-6 text-center bg-gray-700">Pesquisa</span>
+            <span className="block text-xl font-bold pt-6 text-center bg-gray-700">
+              Pesquisa
+            </span>
           </Link>
           <Link href="/autopreenchimento">
-            <span className="block text-xl font-bold pt-6 pb-6 text-center bg-gray-700">Autopreenchimento</span>
+            <span className="block text-xl font-bold pt-6 pb-6 text-center bg-gray-700">
+              Autopreenchimento
+            </span>
           </Link>
         </nav>
       </div>
