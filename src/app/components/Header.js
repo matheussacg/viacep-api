@@ -13,7 +13,7 @@ export default function Header() {
     <header className="bg-gray-800 text-white">
       <div className="flex items-center justify-between p-4">
         <div className="flex items-center">
-          <span className="text-xl font-bold mr-4">ViaAPI</span>
+          <span className="text-xl font-bold mr-4">ViaCEP</span>
         </div>
         <div className="hidden md:flex space-x-4">
           <Link href="/">
