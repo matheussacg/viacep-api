@@ -44,7 +44,7 @@ export default function Autopreenchimento() {
   return (
     <div>
       <Header />
-      <main className="h-screen mb-10 mt-10">
+      <main className="h-screen mb-15 mt-10">
         <div className="flex flex-col justify-center items-center gap-4 p-4">
           <h1 className="font-bold text-2xl underline mb-10">
             Autopreenchimento CEP
