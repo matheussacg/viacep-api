@@ -3,6 +3,7 @@
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import { useState, useEffect } from "react";
+import InputMask from "react-input-mask";
 
 export default function Autopreenchimento() {
   const [cep, setCep] = useState("");
@@ -35,11 +36,11 @@ export default function Autopreenchimento() {
     }
   };
 
-//   useEffect(() => {
-//     if (cep.length === 8) {
-//       fetchEndereco();
-//     }
-//   }, [cep]);
+  //   useEffect(() => {
+  //     if (cep.length === 8) {
+  //       fetchEndereco();
+  //     }
+  //   }, [cep]);
 
   return (
     <div>
@@ -51,7 +52,9 @@ export default function Autopreenchimento() {
           </h1>
           <div className="flex flex-col w-[80%] md:w-[30%]">
             <label className="font-bold">CEP:</label>
-            <input
+            <InputMask
+              mask="99999-999"
+              maskChar={null}
               className="p-3 mb-2 md:mb-0 md:mr-2 bg-gray-100 rounded"
               value={cep}
               onChange={handleInputChange}
@@ -99,7 +102,9 @@ export default function Autopreenchimento() {
               readOnly
             />
           </div>
-          {endereco.uf === "" && cep !== "" && <p className="font-bold text-red-500 mt-6">CEP não encontrado...</p>}
+          {endereco.uf === "" && cep !== "" && (
+            <p className="font-bold text-red-500 mt-6">CEP não encontrado...</p>
+          )}
         </div>
       </main>
       <Footer />
